@@ -1,27 +1,17 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+@extends('layout.layout')
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+@section('title')
+    Home
+@endsection
 
-    <title>Laravel | Home</title>
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=figtree:400,500,600,700,800,900&display=swap" rel="stylesheet" />
+@section('sidebar')
+    @parent
+    Home Sidebar
+@endsection
 
-    <!-- Styles / Scripts -->
-    @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
-    @endif
-</head>
-
-<body class="font-sans antialiased ">
-    <div class="container p-4">
-        <h1 class="text-3xl font-bold text-red-500">LARAVEL</h1>
-        <h3 class="text-xl font-semibold text-white">Home</h3>
-
+@section('content')
+    <section>
         <form action="/users" method="post">
             @csrf
             <div class="mb-4">
@@ -41,7 +31,5 @@
 
             <button class="px-4 py-2 text-sm text-white bg-black hover:bg-red-500">Submit</button>
         </form>
-    </div>
-</body>
-
-</html>
+    </section>
+@endsection

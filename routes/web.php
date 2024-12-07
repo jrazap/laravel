@@ -8,7 +8,8 @@ Route::get('/', function () {
 });
 
 Route::get('users', function () {
-    return view('users');
+    $username = "jrazap";
+    return view('users', compact('username'));
 });
 
 Route::post('users', function (Request $request) {
